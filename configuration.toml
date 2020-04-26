@@ -10,24 +10,23 @@ registries = [
     # { url = "C:\\Users\\montazer\\Desktop\\Julia_Repo\\v4\\examples\\General"}, # Windows os  Example
 ]
 projects = [
-    { url = "https://raw.githubusercontent.com/alirezamecheng/example/master/Project2.toml" }, # Web example
+    # { url = "https://raw.githubusercontent.com/alirezaghavaminia/nativeJuliaMirror.jl/master/examples/Project.toml" }, # Web example
     # { url = ".\\v4\\examples\\Project.toml" }, # Windows OS example
 ]
 
 manifests = [
-    { url = "https://raw.githubusercontent.com/alirezamecheng/example/master/Manifest2.toml" }, # Web example
+    # { url = "https://raw.githubusercontent.com/alirezaghavaminia/nativeJuliaMirror.jl/master/examples/Manifest.toml" }, # Web example
     # { url = ".\\v4\\examples\\Manifest.toml"}, # Windows OS example
-    # { url = "./v4/examples/Manifest.toml"}, # Linux OS example
 ]
 
 keep_online = [
-    {url = "https://raw.githubusercontent.com/alirezamecheng/example/master/keep_online.toml"},
+    # {url = "https://raw.githubusercontent.com/alirezaghavaminia/nativeJuliaMirror.jl/master/examples/keep_online.toml"}, # web example
     # {url = "C:\\Users\\montazer\\Desktop\\Julia_Repo\\v2\\keep_online.toml"},
     # {url = ".\\v4\\examples\\keep_online.toml"}, # Windows OS example
 ]
 
 remove_from_repo = [
-    { url = "https://raw.githubusercontent.com/alirezamecheng/example/master/remove_from_repo.toml"},
+    # { url = "https://raw.githubusercontent.com/alirezaghavaminia/nativeJuliaMirror.jl/master/examples/remove_from_repo.toml"}, # web example
     # {url = "C:\\Users\\montazer\\Desktop\\Julia_Repo\\v2\\remove_from_repo.toml"},
     # {url = ".\\examples\\remove_from_repo.toml"}, # Windows OS example
 ]
