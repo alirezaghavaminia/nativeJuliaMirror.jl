@@ -1,0 +1,109 @@
+# This file belongs to:
+# This file is a configuration file for the program. 
+
+[include]
+#  The files specified in the include section will be downloaded by the Julia language `download` command. As it has mentioned in the Julia documentation for the `download` command, " this function relies on the availability of external tools such as `curl`, `wget` or `fetch` to download". So if your Julia download command works with the local addresses (like in the windows 10), you can use the local addresses in this section. 
+# The relative path is relative to your current terminal path. 
+
+registries = [
+    { url = "https://github.com/JuliaRegistries/General.git"}, # web example
+    # { url = "C:\\Users\\montazer\\Desktop\\Julia_Repo\\v4\\examples\\General"}, # Windows os  Example
+]
+projects = [
+    { url = "https://raw.githubusercontent.com/alirezamecheng/example/master/Project2.toml" }, # Web example
+    # { url = ".\\v4\\examples\\Project.toml" }, # Windows OS example
+]
+
+manifests = [
+    { url = "https://raw.githubusercontent.com/alirezamecheng/example/master/Manifest2.toml" }, # Web example
+    # { url = ".\\v4\\examples\\Manifest.toml"}, # Windows OS example
+    # { url = "./v4/examples/Manifest.toml"}, # Linux OS example
+]
+
+keep_online = [
+    {url = "https://raw.githubusercontent.com/alirezamecheng/example/master/keep_online.toml"},
+    # {url = "C:\\Users\\montazer\\Desktop\\Julia_Repo\\v2\\keep_online.toml"},
+    # {url = ".\\v4\\examples\\keep_online.toml"}, # Windows OS example
+]
+
+remove_from_repo = [
+    { url = "https://raw.githubusercontent.com/alirezamecheng/example/master/remove_from_repo.toml"},
+    # {url = "C:\\Users\\montazer\\Desktop\\Julia_Repo\\v2\\remove_from_repo.toml"},
+    # {url = ".\\examples\\remove_from_repo.toml"}, # Windows OS example
+]
+
+[options]
+
+# You must provide a name for your new registry. This name will be shown to Julia users when performing actions on the packages in the Julia language.
+new_registry_name="" 
+
+# You must provide a valid UUID for your new registry. This UUID must be unique and will be shown and used when performing actions on the packages in the Julia language.
+# You can use Julia UUID package or Linux `uuidgen` command or any other program whatever you prefer to generate a UUID.
+# You should not change this UUID after releasing the registry because it will cause errors for Julia users who use your registry.  
+new_registry_uuid = ""
+
+# Installation Path
+# You must provide an existing and writable path to the program. This path will be used to make packages repo and registries as well as other necessary metadata for the program.
+# Note that in case you choose the clean installation option, all contents of this path will be removed.
+# In case you want to use the package repo with a git server, you must read and pay attention to the instructions in the install on the server options too. 
+# prefix = "/var/www/git/julia_repo"
+prefix = ""
+
+# You must provide a git username and Email. This username and Email will be used to commit changes in the new registries that will be created by the program.
+# WARNING: DO NOT provide your password to this program. 
+# e.g.: git_user_name = "myname"
+# e.g.: git_user_email = "myname@gmail.com"
+
+# your_info: Optional. The contents of this option will be added to the info section of the new registries.
+# default = ""
+your_info = ""
+
+# git_commit_info: Optional. Additional information that appears in git commits.
+git_commit_info = ""
+
+
+# install_on_network: Optional. If you want to make a mirror repo that can be accessed through a network, you need to change the value of this option to `true`. Then you should modify the `network_access_address` and `prefix` too.
+# Assuming that your domain address is "mydomain.com" and you have made a path for the Julia repo at "/var/www/newRepo".  If you clone a package into that directory and that package can be accessed by "https://mydomain.com/newRepo/package.jl.git". You should set the prefix to "/var/www/newRepo" and the network_access_address" to "https://www.mydomain.com/newRepo"
+# NOTE: Any "/" at the end of the "network_access_address" will be omitted.
+install_on_network = true
+network_access_address = "https://example.com"
+
+# download_all_packages: Optional. With this option, you can tell the program to download all the packages in the registry or not.
+# If set to `false`, you need to set the `projects` or `manifests` in the `[include]` section. Standard Julia libraries that appear in the `manifest` or `project` files will be excluded from the local repo, and their link to the original address will be kept intact.
+# default = true
+download_all_packages = true
+
+# make_local_access_reg, Optional. If set to `true`, the program will make a registry that provides access to the mirrored packages for users of the server machine locally.
+# default = true
+make_local_access_reg = true
+
+# minimal_reg: Optional. If set to true, the program will make make a registry exclusively for packages that are included in the download list. The standard library packages will not be included in that list and if a package can not be downloaded, the original URL of the package will be kept intact.
+# Default value is = false.
+minimal_reg = false
+
+
+# clean_installation: Optional. If true, the program will remove every content of the prefix directory before the beginning of the installation. Before using this option, make sure you have a backup.
+# Default value is = false.
+clean_installation = false
+
+# update_mode: Optional. If set to true, the program will try to update Julia packages git repositories. If set to false, it will skip the update if it finds the git repository. Otherwise, the program will try to clone the git repository. 
+# Default value is = true.
+update_mode = true
+
+# refresh_conf_file: Optional. This option will force the program to download the files specified in the include section of the configuration.toml file every time you run the make.jl, whether they already exist or not.
+# Default value is = true.
+refresh_conf_files = true
+
+# log_to_file: Optional. If true, it will make a log file and record the events in that file.
+# Default value is = true.
+log_to_file = true
+
+# make_backups: Optional. When set to true, if the program wants to change a file that already exists, it will make a copy of that file and store it with the "backup_" prefix. This backup will be overwritten in the next run and will not be preserved. Files that are in a git repository will not be affected by this option. 
+# Default value is = true.
+make_backups = true
+
+
+# silent_installation: Optional. If true, the program will not ask for confirmation when it is needed (for example, when removing a file or directory).
+# Note: The git may ask for credentials even when setting this option to true.
+# Default value is = false.
+silent_installation = true
