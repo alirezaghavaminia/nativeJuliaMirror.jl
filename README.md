@@ -1,11 +1,10 @@
-This program helps you to make a mirror repository to be used on a git server or your local machine. This program works with the Pkg3 Julia package manager.
-
 ## Description:
 
-This program will clone packages that you specify to that through the `configuration.toml` file. Then it will make new registries for the user to use the cloned packages. 
+The "native Julia Mirror (NAJM)" can make a mirror repository, including an offline version of Julia packages and registry. The result can be deployed to a network or can be used on a local machine. NAJM works with the Pkg3 Julia package manage and has been tested on Linux and Windows OS.
+
 ### some features are: 
 
-* can get multiple official or unofficial registries at the same time
+* can handle multiple official or unofficial registries at the same time
 
 * can update and maintain the cloned packages
 
