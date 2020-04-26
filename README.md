@@ -250,3 +250,24 @@ Optional. If `true`, the program will not ask for confirmation when it is needed
 Note: The git may ask for credentials even when setting this option to true.
 
 Default value is = `false`.
+
+
+## Some Considerations
+
+* Some packages may ask for credentials. Usually, the URL of these packages is broken; thus, the git clone command thinks that these packages are private and password protected. NAJM can't distinguish between those; Therefore, it will ask for credentials too. To bypass the password request, I recommend using the `yes` program.
+
+    ```bash 
+        yes | julia make.jl
+    ```
+ 
+ * Making or Updating the package repository takes time, so you may consider using tools such as `nohup` or `screen`.
+
+ ### Set up a git server 
+
+ In order to use mirrored Julia packages on a network, you need to set up a Git server. You can find the available protocols in the [Git documentation](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols). 
+ 
+I propose using the `smart HTTP` protocol since the `dumb HTTP` protocol requires the packages to be `bare packages`, and my tests showed that Julia could not interact with the bare packages on the server (maybe I'm wrong).
+
+Here is a simple configuration for the apache2 webserver ([Here](https://linuxhint.com/git_server_http_ubuntu/)). 
+A PDF file of the above tutorial can be found [here](https://github.com/alirezaghavaminia/nativeJuliaMirror.jl/blob/master/docs/thirdParty/WORKS%20Configure%20Git%20Server%20with%20HTTP%20on%20Ubuntu%20%E2%80%93%20Linux%20Hint.pdf). 
+Please consider the security measures for your server. For example, some of the security tips can be found in [this tutorial](https://github.com/alirezaghavaminia/nativeJuliaMirror.jl/blob/master/docs/thirdParty/Howto%20set%20up%20Git%20over%20Https%20with%20Apache%20on%20Ubuntu%20Server%2014.04%20%E2%80%93%20Creang.pdf).
