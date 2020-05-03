@@ -36,7 +36,7 @@ if LOGGING_TO_FILE
 logprintln("== In case of crash, build log is available at: $(joinpath(BUILD_INFORMATION_PATH,"BUILD_LOG.log")).")
 end
 
-Saving_the_build_information(BUILD_INFORMATION_PATH)
+Saving_the_build_information(BUILD_INFORMATION_PATH,:start)
 if SILENT
     logprintln("== Silent installation mode.")
 end
@@ -164,3 +164,4 @@ logprintln("""
                Finished                     
 ==========================================
 """)
+Saving_the_build_information(BUILD_INFORMATION_PATH,:finish)

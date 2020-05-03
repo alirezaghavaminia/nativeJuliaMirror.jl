@@ -55,7 +55,7 @@ prefix = ""
 
 # your_info: Optional. The contents of this option will be added to the info section of the new registries.
 # default = ""
-your_info = ""
+your_info = "By https://github.com/alirezaghavaminia/nativeJuliaMirror.jl"
 
 # git_commit_info: Optional. Additional information that appears in git commits.
 git_commit_info = ""

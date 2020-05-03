@@ -47,13 +47,18 @@ end
 """
 making or use the build directory and append the new date and time to that.
 """
-function Saving_the_build_information(path)
+function Saving_the_build_information(path,type)
     logprintln("== Saving the build information...")
     mkpath(path)  
-    Build_Spec_File = open(joinpath(path,"BUILD_TIME.log"), "a")
-    write(Build_Spec_File, "$(repr(Dates.now()))\n",)
+    Build_Spec_File = open(joinpath(path,BUILD_TIME_FILE_NAME), "a")
+    if type == :start
+        write(Build_Spec_File, "Started at: $(repr(Dates.now()))\n",)
+    end
+    if type == :finish
+        write(Build_Spec_File, "  Ended at: $(repr(Dates.now()))\n",)
+    end
     close(Build_Spec_File)
-    logprintln("    <> Saved build Start time at: $(path)/BUILD_TIME.log")
+    logprintln("    <> Saved build time at: $(path)/$(BUILD_TIME_FILE_NAME)")
 end
 
 function remove_dir!(path, info="";force = true, recursive = true) 

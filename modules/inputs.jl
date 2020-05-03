@@ -1,7 +1,7 @@
 include("check_inputs.jl")
 
 println("== parsing \"configuration.toml\"...")
-configuration = parse_configuration(joinpath(project_root,"my_configuration.toml"))
+configuration = parse_configuration(joinpath(project_root,"configuration.toml"))
 check_configuration_file(configuration)
 
 op = configuration["options"]
@@ -50,6 +50,7 @@ Mirror registry"""
 const SCREIPTS_DIR_NAME = "modules"
 const BUILD_INFORMATION_DIR = "build_info"
 const BUILD_LOG_FILE_NAME = "BUILD_LOG.log"
+const BUILD_TIME_FILE_NAME = "BUILD_TIME.log"
 const PACKAGES_DIR = "packages"
 const NEW_REG_DIR = "registry"
 const SRC_DIR = "op_include"
