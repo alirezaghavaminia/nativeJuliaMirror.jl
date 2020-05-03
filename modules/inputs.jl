@@ -10,9 +10,11 @@ op = configuration["options"]
 temp_errors = Dict{String,String}()
 temp_prefix = input(op,"prefix", temp_errors, def = "")
 check_prefix(temp_prefix)
-cd(temp_prefix)
-const PREFIX = pwd() # making prefix an absolute address
-cd(user_original_directory)
+# cd(temp_prefix)
+# const PREFIX = pwd() # making prefix an absolute address 
+# cd(user_original_directory)
+const PREFIX = realpath(temp_prefix) # making prefix an absolute address 
+
 
 # other input
 input_errors = Dict{String,String}()

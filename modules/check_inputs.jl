@@ -127,7 +127,7 @@ function check_prefix(path)
     error_dict = Dict{String,String}()
     if path == ""
         @debug("============ PREFIX IS NOT A VALID STRING")
-        push!(error_dict,"prefix" => "The value of \"prefix\" key in the \"configuration.toml\" file is not correct.")
+        push!(error_dict,"prefix" => "ERROR: The value of \"prefix\" key in the \"configuration.toml\" file is not correct.\nPlease provide an existing and writable directory.")
         report_errors(error_dict,fatal = true, msg = true)
     end
     if isdir(path)
@@ -136,7 +136,7 @@ function check_prefix(path)
             mkdir(joinpath(path,"test"))
             rm(joinpath(path,"test"),force = true, recursive = true)
         catch e
-            massage = "Permission denied. Can't write into the prefix."
+            massage = "ERROR: Permission denied. Don't have permission to write in ($(repr(path)))."
             push!(error_dict,"prefix" => massage)
         end
     else
@@ -144,7 +144,7 @@ function check_prefix(path)
         try 
             mkdir(path)
         catch e
-            massage = "ERROR: ", repr(path), " is not a \"Writable\" directory. Please fix the \"prefix\" value in the \"configuration.toml\""
+            massage = "ERROR: ", repr(path), " is not a directory. \nPlease provide an existing and writable directory."
             println(massage)
             push!(error_dict,"prefix" => massage,msg = true)
         end
