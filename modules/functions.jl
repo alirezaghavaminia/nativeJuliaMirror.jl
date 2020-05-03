@@ -130,17 +130,19 @@ function git_clone(url::AbstractString, path::AbstractString)
         tmp = path
     end
     mkpath(tmp)
-    Base.shred!(LibGit2.CachedCredentials()) do creds
-        LibGit2.with(
-            Pkg.GitTools.clone(
-                url,
-                tmp;
-                header = "registry from $(repr(url))",
-                credentials = creds,
-                )
-            ) do repo
-        end
-    end
+    # Base.shred!(LibGit2.CachedCredentials()) do creds
+    #     LibGit2.with(
+    #         Pkg.GitTools.clone(
+    #             url,
+    #             tmp;
+    #             header = "registry from $(repr(url))",
+    #             credentials = creds,
+    #             )
+    #         ) do repo
+    #     end
+    # end
+
+    repo = LibGit2.clone(url, tmp)
     return tmp
 end
 
