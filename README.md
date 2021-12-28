@@ -271,3 +271,7 @@ I propose using the `smart HTTP` protocol since the `dumb HTTP` protocol require
 Here is a simple configuration for the apache2 webserver ([Here](https://linuxhint.com/git_server_http_ubuntu/)). 
 A PDF file of the above tutorial can be found [here](https://github.com/alirezaghavaminia/nativeJuliaMirror.jl/blob/master/docs/thirdParty/WORKS%20Configure%20Git%20Server%20with%20HTTP%20on%20Ubuntu%20%E2%80%93%20Linux%20Hint.pdf). 
 Please consider the security measures for your server. For example, some of the security tips can be found in [this tutorial](https://github.com/alirezaghavaminia/nativeJuliaMirror.jl/blob/master/docs/thirdParty/Howto%20set%20up%20Git%20over%20Https%20with%20Apache%20on%20Ubuntu%20Server%2014.04%20%E2%80%93%20Creang.pdf).
+
+## Licence
+
+Under MIT Licence. You are free to use as you wish. Just Please inform me if you make a better version so that I can enjoy it to. :)
