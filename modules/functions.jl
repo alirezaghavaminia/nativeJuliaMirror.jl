@@ -163,7 +163,7 @@ function git_update(path)
             end
             branch = LibGit2.headname(repo)
             try
-                GitTools.fetch(repo; refspecs=["+refs/heads/$branch:refs/remotes/origin/$branch"])
+                GitTools.fetch(Base.stdout, repo; refspecs=["+refs/heads/$branch:refs/remotes/origin/$branch"])
             catch e
                 push!(errors, (path, "failed to fetch from repo"))
                 @goto done
