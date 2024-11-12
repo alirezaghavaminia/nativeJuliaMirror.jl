@@ -19,7 +19,8 @@ The "native Julia Mirror (NAJM)" can make a mirror repository, including an offl
 
 ## Prerequisites: 
 
-A Julia language version 1.1.0 or higher is required.
+A Julia language version 1.1.0 or higher is required. 
+The Julia 1.10 Git commands are changed so for this version and higher version a seperate commit is taged. 
 
 
 ## installation:
